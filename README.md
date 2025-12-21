@@ -11,6 +11,8 @@ O script permite que o usuário **escolha manualmente** o que deseja aplicar, se
 Execute diretamente no PowerShell (Administrador):
 
 powershell
+
+
 & ([scriptblock]::Create((irm "https://raw.githubusercontent.com/cheatzera/CheatOptimizer/main/CheatOptimizer.ps1")))
 
 🧩 Funcionalidades

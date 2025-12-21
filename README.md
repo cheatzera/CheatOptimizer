@@ -107,6 +107,16 @@ Tema azul/ciano
 Execução direta via PowerShell (sem instalador)
 
 
+## ⚠️ Important
+This project is intended for advanced users. Use at your own risk.
+
+---
+
+## 🇧🇷 Aviso (Português)
+Este projeto é voltado para usuários avançados. Use por sua conta e risco.
+
+
+
 
 👤 Autor
 

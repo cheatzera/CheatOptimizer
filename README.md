@@ -14,6 +14,8 @@ powershell
 & ([scriptblock]::Create((irm "https://raw.githubusercontent.com/cheatzera/CheatOptimizer/main/CheatOptimizer.ps1")))
 
 🧩 Funcionalidades
+
+
 🧠 IA / Copilot
 
 Desativar chaves de registro relacionadas à IA

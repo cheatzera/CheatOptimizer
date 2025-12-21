@@ -34,6 +34,8 @@ Remover tarefas agendadas do Recall
 
 Ocultar componentes de IA nas Configurações
 
+
+
 🔧 Serviços do Windows
 
 SysMain
@@ -54,6 +56,8 @@ Smart Card
 
 🧾 Tweaks de Registro
 
+
+
 Desativar GameDVR
 
 Ajustar Win32PrioritySeparation
@@ -66,6 +70,8 @@ MenuShowDelay = 0
 
 Desativar NDU
 
+
+
 ⏱️ Tarefas Agendadas
 
 WinSAT
@@ -75,6 +81,8 @@ Windows Error Reporting
 Compatibility Appraiser
 
 Diagnosis Tasks
+
+
 
 🔄 Reverter alterações
 
@@ -88,6 +96,8 @@ Tarefas agendadas
 
 Nem todas as remoções (ex: pacotes CBS) podem ser revertidas automaticamente.
 
+
+
 🎨 Interface
 
 Interface gráfica em WinForms
@@ -96,16 +106,7 @@ Tema azul/ciano
 
 Execução direta via PowerShell (sem instalador)
 
-⚠️ Aviso importante
 
-Este script modifica configurações do sistema operacional.
-Use por sua conta e risco.
-
-Recomendado:
-
-Criar um ponto de restauração
-
-Usar apenas se souber o que está fazendo
 
 👤 Autor
 

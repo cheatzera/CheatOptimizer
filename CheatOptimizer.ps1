@@ -1,6 +1,13 @@
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
+function Point($x,$y){
+    New-Object System.Drawing.Point -ArgumentList $x,$y
+}
+function Size($w,$h){
+    New-Object System.Drawing.Size -ArgumentList $w,$h
+}
+
 # =========================
 # FUNÃ‡Ã•ES BASE
 # =========================
@@ -72,9 +79,11 @@ function New-CheckBox($text, $y) {
     $cb.ForeColor = [System.Drawing.Color]::White
     $cb.Font = New-Object System.Drawing.Font("Segoe UI", 10)
     $cb.AutoSize = $true
-    $cb.Location = New-Object System.Drawing.Point(15, $y)
+    $cb.Location = New-Object System.Drawing.Point -ArgumentList 15, $y
     return $cb
 }
+
+
 
 
 # =========================
@@ -158,8 +167,8 @@ $tabTasks.Controls.AddRange($taskChecks)
 function New-Button($text, $x, $color) {
     $b = New-Object System.Windows.Forms.Button
     $b.Text = $text
-    $b.Size = New-Object System.Drawing.Size(120, 36)
-    $b.Location = New-Object System.Drawing.Point($x, 470)
+    $b.Size = New-Object System.Drawing.Size -ArgumentList 120, 36
+    $b.Location = New-Object System.Drawing.Point -ArgumentList $x, 470
     $b.BackColor = [System.Drawing.Color]::FromName($color)
     $b.ForeColor = [System.Drawing.Color]::Black
     $b.FlatStyle = [System.Windows.Forms.FlatStyle]::Flat
@@ -170,6 +179,8 @@ function New-Button($text, $x, $color) {
     )
     return $b
 }
+
+
 
 $btnApply=New-Button "Apply" 70 Cyan
 $btnRevert=New-Button "Revert" 240 LightSkyBlue

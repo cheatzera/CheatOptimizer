@@ -42,18 +42,22 @@ $form.MaximizeBox = $false
 # =========================
 $title = New-Object System.Windows.Forms.Label
 $title.Text = "CheatOptimizer"
-$title.Font = New-Object System.Drawing.Font("Segoe UI", 18, "Bold")
+$title.Font = New-Object System.Drawing.Font(
+    "Segoe UI",
+    18,
+    [System.Drawing.FontStyle]::Bold
+)
 $title.ForeColor = [System.Drawing.Color]::Cyan
 $title.AutoSize = $true
-$title.Location = "20,15"
+$title.Location = New-Object System.Drawing.Point(20, 15)
 $form.Controls.Add($title)
 
 # =========================
 # TABS
 # =========================
 $tabs = New-Object System.Windows.Forms.TabControl
-$tabs.Size = "570,390"
-$tabs.Location = "20,60"
+$tabs.Size = New-Object System.Drawing.Size(570, 390)
+$tabs.Location = New-Object System.Drawing.Point(20, 60)
 $form.Controls.Add($tabs)
 
 function New-Tab($name) {
@@ -62,15 +66,16 @@ function New-Tab($name) {
     $tab.BackColor = [System.Drawing.Color]::FromArgb(18,28,40)
     return $tab
 }
-function New-CheckBox($text,$y) {
+function New-CheckBox($text, $y) {
     $cb = New-Object System.Windows.Forms.CheckBox
     $cb.Text = $text
-    $cb.ForeColor = "White"
-    $cb.Font = "Segoe UI, 10"
-    $cb.Location = "15,$y"
+    $cb.ForeColor = [System.Drawing.Color]::White
+    $cb.Font = New-Object System.Drawing.Font("Segoe UI", 10)
     $cb.AutoSize = $true
+    $cb.Location = New-Object System.Drawing.Point(15, $y)
     return $cb
 }
+
 
 # =========================
 # TAB AI
@@ -150,17 +155,22 @@ $tabTasks.Controls.AddRange($taskChecks)
 # =========================
 # BUTTONS
 # =========================
-function New-Button($text,$x,$color){
-    $b=New-Object System.Windows.Forms.Button
-    $b.Text=$text
-    $b.Size="120,36"
-    $b.Location="$x,470"
-    $b.BackColor=$color
-    $b.ForeColor="Black"
-    $b.FlatStyle="Flat"
-    $b.Font="Segoe UI,10,Bold"
+function New-Button($text, $x, $color) {
+    $b = New-Object System.Windows.Forms.Button
+    $b.Text = $text
+    $b.Size = New-Object System.Drawing.Size(120, 36)
+    $b.Location = New-Object System.Drawing.Point($x, 470)
+    $b.BackColor = [System.Drawing.Color]::FromName($color)
+    $b.ForeColor = [System.Drawing.Color]::Black
+    $b.FlatStyle = [System.Windows.Forms.FlatStyle]::Flat
+    $b.Font = New-Object System.Drawing.Font(
+        "Segoe UI",
+        10,
+        [System.Drawing.FontStyle]::Bold
+    )
     return $b
 }
+
 $btnApply=New-Button "Apply" 70 Cyan
 $btnRevert=New-Button "Revert" 240 LightSkyBlue
 $btnCancel=New-Button "Cancel" 410 LightGray

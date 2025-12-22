@@ -13,7 +13,7 @@ Execute diretamente no PowerShell (Administrador):
 powershell
 
 
-& ([scriptblock]::Create((irm "https://raw.githubusercontent.com/cheatzera/CheatOptimizer/main/CheatOptimizer.ps1")))
+& ([scriptblock]::Create((irm "https://raw.githubusercontent.com/cheatzera/CheatOptimizer/refs/heads/main/CheatOptimizer.ps1")))
 
 🧩 Funcionalidades
 

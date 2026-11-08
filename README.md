@@ -46,7 +46,7 @@ Pastas de Trabalho, Telemetria (DiagTrack), Cartão Inteligente (+ Política de 
 - Desativar NDU
 - `GPU_SCHEDULER_MODE = 22`
 - Desativar manutenção automática (`MaintenanceDisabled = 1`)
-- Perfil multimídia (`SystemResponsiveness` / `NetworkThrottlingIndex` = 10)
+- Perfil multimídia (`SystemResponsiveness = 10`, `NetworkThrottlingIndex = 0xFFFFFFFF`)
 - Prioridade de jogos no MMCSS (GPU 8, Priority 6, High, High)
 - Não buscar drivers pelo Windows Update (`SearchOrderConfig = 0`)
 

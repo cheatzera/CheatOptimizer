@@ -34,19 +34,37 @@ Passe o mouse sobre cada opção para ver uma descrição.
 - Desativar recursos de IA do Notepad (Rewrite)
 - Desativar tarefas agendadas do Recall/IA
 
-### 🔧 Serviços
-SysMain, Windows Search, BITS, Spooler de Impressão, Telemetria (DiagTrack), Geolocalização, Fax, Smart Card.
+### 🔧 Serviços (parar + desativar)
+Pastas de Trabalho, Telemetria (DiagTrack), Cartão Inteligente (+ Política de Remoção + Enumeração), Controles dos Pais, Geolocalização, Política de Diagnóstico, Telefonia, SysMain, Fax, BITS, BitLocker, Spooler, Windows Update, Windows Search, Área de Trabalho Remota (+ Configuração), Bluetooth, Relatório de Erros, Biometria, Registro Remoto, Logs de Eventos, Coletor de Eventos, Logs e Alertas de Desempenho, serviços de configuração de impressora.
 
 ### 🧾 Tweaks de registro
-- Desativar GameDVR
+- Desativar GameDVR (+ `GameDVR_DSEBehavior = 2`)
 - `Win32PrioritySeparation = 36`
 - Desativar Multiplane Overlay (MPO)
 - Desativar Power Throttling
 - `MenuShowDelay = 0`
 - Desativar NDU
+- `GPU_SCHEDULER_MODE = 22`
+- Desativar manutenção automática (`MaintenanceDisabled = 1`)
+- Perfil multimídia (`SystemResponsiveness` / `NetworkThrottlingIndex` = 10)
+- Prioridade de jogos no MMCSS (GPU 8, Priority 6, High, High)
+- Não buscar drivers pelo Windows Update (`SearchOrderConfig = 0`)
 
 ### ⏱️ Tarefas agendadas
 WinSAT, Windows Error Reporting, Compatibility Appraiser, tarefas de Diagnosis.
+
+### 💽 Sistema (disco / boot / energia)
+- Ativar TRIM (`fsutil behavior set disabledeletenotify 0`)
+- Desativar hibernação (`powercfg /hibernate off`)
+- Desativar último acesso NTFS (`disablelastaccess 1`)
+- `memoryusage 2`
+- `bcdedit /set useplatformclock no`
+- Plano de energia Desempenho Máximo (Ultimate Performance)
+
+### 🛠️ Reparo (opcional, executa por último)
+`DISM /CheckHealth`, `DISM /RestoreHealth` e `sfc /scannow` — abrem uma janela de console com o progresso.
+
+> Dica: o botão **Select safe** marca só as opções sem aviso na aba atual.
 
 ---
 
@@ -57,7 +75,7 @@ Antes de alterar qualquer coisa, o programa guarda o estado original em
 **marcadas** para o valor original salvo (ou para o padrão do Windows, caso não haja registro).
 
 - Há também a opção de criar um **ponto de restauração** antes de aplicar.
-- Remoções (pacotes Appx/CBS, dados apagados) **não** podem ser revertidas automaticamente.
+- Remoções (pacotes Appx/CBS, dados apagados) e as opções de Reparo **não** podem ser revertidas automaticamente.
 - Algumas mudanças só têm efeito após reiniciar (ou sair e entrar na conta).
 
 ## ⚠️ Important

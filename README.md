@@ -1,124 +1,71 @@
 # CheatOptimizer
 
-CheatOptimizer é um script em PowerShell com interface gráfica (WinForms) focado em **otimização de desempenho**, **desativação de serviços desnecessários**, **tweaks de registro** e **remoção/desativação de componentes de IA do Windows**.
+CheatOptimizer é um script em PowerShell com interface gráfica (WinForms) focado em **otimização de desempenho**, **desativação de serviços desnecessários**, **tweaks de registro** e **desativação/remoção de componentes de IA do Windows**.
 
-O script permite que o usuário **escolha manualmente** o que deseja aplicar, sem alterações automáticas forçadas.
+O usuário **escolhe manualmente** o que aplicar — nada é alterado automaticamente.
 
 ---
 
 ## 🚀 Como usar
 
-Execute diretamente no PowerShell (Administrador):
+Abra o PowerShell e execute (o script pede elevação de Administrador sozinho, se necessário):
 
-powershell
-
-
+```powershell
 & ([scriptblock]::Create((irm "https://raw.githubusercontent.com/cheatzera/CheatOptimizer/refs/heads/main/CheatOptimizer.ps1")))
+```
 
-🧩 Funcionalidades
+Ou baixe o `CheatOptimizer.ps1` e rode com botão direito → *Executar com o PowerShell*.
 
-
-🧠 IA / Copilot
-
-Desativar chaves de registro relacionadas à IA
-
-Desativar Copilot e Recall
-
-Remover pacotes Appx de IA
-
-Remover componentes ocultos da CBS
-
-Impedir reinstalação de pacotes de IA
-
-Remover tarefas agendadas do Recall
-
-Ocultar componentes de IA nas Configurações
-
-
-
-🔧 Serviços do Windows
-
-SysMain
-
-Windows Search
-
-Telemetria (DiagTrack)
-
-BITS
-
-Spooler de Impressão
-
-Geolocalização
-
-Fax
-
-Smart Card
-
-🧾 Tweaks de Registro
-
-
-
-Desativar GameDVR
-
-Ajustar Win32PrioritySeparation
-
-Desativar Multiplane Overlay
-
-Desativar Power Throttling
-
-MenuShowDelay = 0
-
-Desativar NDU
-
-
-
-⏱️ Tarefas Agendadas
-
-WinSAT
-
-Windows Error Reporting
-
-Compatibility Appraiser
-
-Diagnosis Tasks
-
-
-
-🔄 Reverter alterações
-
-O CheatOptimizer possui um botão Revert, que tenta restaurar:
-
-Serviços
-
-Chaves de registro principais
-
-Tarefas agendadas
-
-Nem todas as remoções (ex: pacotes CBS) podem ser revertidas automaticamente.
-
-
-
-🎨 Interface
-
-Interface gráfica em WinForms
-
-Tema azul/ciano
-
-Execução direta via PowerShell (sem instalador)
-
-
-## ⚠️ Important
-This project is intended for advanced users. Use at your own risk.
+Passe o mouse sobre cada opção para ver uma descrição.
 
 ---
 
-## 🇧🇷 Aviso (Português)
-Este projeto é voltado para usuários avançados. Use por sua conta e risco.
+## 🧩 Funcionalidades
 
+### 🧠 IA / Copilot
+- Desativar chaves de registro de IA (Recall, Click to Do)
+- Impedir a reinstalação de pacotes de IA
+- Desativar políticas do Copilot (e o botão da barra de tarefas)
+- Remover pacotes Appx de IA *(irreversível)*
+- Desativar o recurso opcional Recall
+- Remover pacotes CBS de IA *(experimental, irreversível)*
+- Apagar dados do Recall (snapshots) *(irreversível)*
+- Ocultar componentes de IA nas Configurações
+- Desativar recursos de IA do Notepad (Rewrite)
+- Desativar tarefas agendadas do Recall/IA
 
+### 🔧 Serviços
+SysMain, Windows Search, BITS, Spooler de Impressão, Telemetria (DiagTrack), Geolocalização, Fax, Smart Card.
 
+### 🧾 Tweaks de registro
+- Desativar GameDVR
+- `Win32PrioritySeparation = 36`
+- Desativar Multiplane Overlay (MPO)
+- Desativar Power Throttling
+- `MenuShowDelay = 0`
+- Desativar NDU
 
-👤 Autor
+### ⏱️ Tarefas agendadas
+WinSAT, Windows Error Reporting, Compatibility Appraiser, tarefas de Diagnosis.
 
-cheatzera
-GitHub: https://github.com/cheatzera
+---
+
+## 🔄 Reverter alterações
+
+Antes de alterar qualquer coisa, o programa guarda o estado original em
+`%ProgramData%\CheatOptimizer\backup.json`. O botão **Revert** restaura as opções
+**marcadas** para o valor original salvo (ou para o padrão do Windows, caso não haja registro).
+
+- Há também a opção de criar um **ponto de restauração** antes de aplicar.
+- Remoções (pacotes Appx/CBS, dados apagados) **não** podem ser revertidas automaticamente.
+- Algumas mudanças só têm efeito após reiniciar (ou sair e entrar na conta).
+
+## ⚠️ Important
+This project is intended for advanced users. Use at your own risk. Disabling services such as Print Spooler, BITS or Smart Card can break printing, Windows Update downloads or smart-card logins.
+
+## 🇧🇷 Aviso
+Este projeto é voltado para usuários avançados. Use por sua conta e risco. Desativar serviços como Spooler, BITS ou Smart Card pode quebrar impressão, downloads do Windows Update ou login por smart card.
+
+---
+
+👤 **Autor:** [cheatzera](https://github.com/cheatzera)

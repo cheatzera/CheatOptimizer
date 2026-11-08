@@ -97,7 +97,12 @@ function Backup-RegValue($path, $name) {
 
 function ConvertTo-RegValue($kind, $value) {
     switch ($kind) {
-        'DWord'  { return [int]$value }
+        'DWord'  {
+            # allow unsigned values such as 0xFFFFFFFF (stored as -1 in the registry)
+            $v = [int64]$value
+            if ($v -gt 2147483647) { $v -= 4294967296 }
+            return [int]$v
+        }
         'QWord'  { return [long]$value }
         'String' { return [string]$value }
         'ExpandString' { return [string]$value }
@@ -536,12 +541,12 @@ $script:Options += New-Option 'Registry Tweaks' 'Disable auto maintenance' `
     { Set-Reg 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance' 'MaintenanceDisabled' DWord 1 } `
     { Restore-Reg 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\Maintenance' 'MaintenanceDisabled' }
 
-$script:Options += New-Option 'Registry Tweaks' 'Multimedia profile = 10' `
-    'MMCSS SystemProfile: SystemResponsiveness = 10 (default 20) and NetworkThrottlingIndex = 10 (Windows default is already 10).' `
+$script:Options += New-Option 'Registry Tweaks' 'Multimedia profile (MMCSS)' `
+    'MMCSS SystemProfile: SystemResponsiveness = 10 (default 20) and NetworkThrottlingIndex = 0xFFFFFFFF (disables network throttling; default is 10).' `
     {
         $p = 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
         Set-Reg $p 'SystemResponsiveness' DWord 10
-        Set-Reg $p 'NetworkThrottlingIndex' DWord 10
+        Set-Reg $p 'NetworkThrottlingIndex' DWord 0xFFFFFFFF
     } `
     {
         $p = 'HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
